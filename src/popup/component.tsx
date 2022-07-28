@@ -52,6 +52,9 @@ export function Popup() {
     // Sends the `popupMounted` event
     React.useEffect(() => {
         browser.runtime.sendMessage({ popupMounted: true });
+        browser.runtime.onMessage.addListener((messeage) => {
+            console.log(messeage);
+        });
     }, []);
 
     // Renders the component tree
